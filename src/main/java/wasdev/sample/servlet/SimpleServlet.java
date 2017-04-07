@@ -16,6 +16,8 @@ import com.mongodb.DB;
 @WebServlet("/SimpleServlet")
 public class SimpleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    @Resource(name = "mongo/Compose for MongoDB-3r")
+    private DB mydb;
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -23,8 +25,6 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        @Resource(name = "mongo/Compose for MongoDB-3r")
-        DB mydb;
         String str= mydb.getName();
         response.setContentType("text/html");
         response.getWriter().print("Hello World Mondo: " + str);
