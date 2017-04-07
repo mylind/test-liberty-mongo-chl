@@ -24,7 +24,7 @@ public class SimpleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         @Resource(name = "mongo/Compose for MongoDB-3r")
-        private DB mydb;
+        DB mydb;
         String str= mydb.getName();
         response.setContentType("text/html");
         response.getWriter().print("Hello World Mondo: " + str);
