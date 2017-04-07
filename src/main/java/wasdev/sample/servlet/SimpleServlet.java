@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.annotation.Resource;
+import com.mongodb.DB;
 
 /**
  * Servlet implementation class SimpleServlet
@@ -20,8 +22,13 @@ public class SimpleServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        @Resource(name = "mongo/Compose for MongoDB-3r")
+        private DB mydb;
+        String str= mydb.getName();
         response.setContentType("text/html");
-        response.getWriter().print("Hello World!");
+        response.getWriter().print("Hello World Mondo: " + str);
+        
     }
 
 }
